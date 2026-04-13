@@ -29,5 +29,5 @@ async def main():
     app_bot.add_handler(CommandHandler("start", start))
     await app_bot.run_polling()
 
-if name == "__main__":
+if __name__ == "__main__":
     asyncio.run(main())
