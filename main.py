@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from flask import Flask
 from threading import Thread
 
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("8620222015:AAGFcoPd7GdfyQh2rowj8-wpkbnYX9l48Ok")
 
 app = Flask(__name__)
 
