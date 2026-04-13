@@ -1,33 +1,28 @@
 import os
-import asyncio
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from flask import Flask
 from threading import Thread
 
-# ===== FLASK (Render uchun alive) =====
+TOKEN = os.getenv("TOKEN")
+
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return "I am alive"
+    return "Bot ishlayapti"
 
-def run():
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 10000)))
-
-Thread(target=run).start()
-
-# ===== TELEGRAM BOT =====
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-
-TOKEN = "8620222015:AAGFcoPd7GdfyQh2rowj8-wpkbnYX9l48Ok"  # 👉 shu joyga token qo‘y
+def run_web():
+    app.run(host="0.0.0.0", port=10000)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Bot ishlayapti 🚀")
+    await update.message.reply_text("Ishlayapman 😎")
 
-async def main():
+def run_bot():
     app_bot = ApplicationBuilder().token(TOKEN).build()
     app_bot.add_handler(CommandHandler("start", start))
-    await app_bot.run_polling()
+    app_bot.run_polling()
 
-if __name__ == "__main__":
-    asyncio.run(main())
+if name == "__main__":
+    Thread(target=run_web).start()
+    run_bot()
