@@ -23,6 +23,6 @@ def run_bot():
     app_bot.add_handler(CommandHandler("start", start))
     app_bot.run_polling()
 
-if __name__ == "__main__":
+if name == "__main__":
     Thread(target=run_web).start()
     run_bot()
