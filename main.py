@@ -111,3 +111,16 @@ app.add_handler(MessageHandler(filters.ALL, save_media))
 
 keep_alive()
 app.run_polling()
+from flask import Flask
+from threading import Thread
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "I am alive"
+
+def run():
+    app.run(host='0.0.0.0', port=10000)
+
+Thread(target=run).start()
