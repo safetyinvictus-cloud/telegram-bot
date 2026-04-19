@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from flask import Flask
 from threading import Thread
 
-TOKEN = os.getenv("8620222015:AAGFcoPd7GdfyQh2rowj8-wpkbnYX9l48Ok")
+TOKEN = "8620222015:AAGdixFHpTm8dhudWRXwjmufRkPsvvK5K4U"
 
 app = Flask(__name__)
 
@@ -23,6 +23,6 @@ def run_bot():
     app_bot.add_handler(CommandHandler("start", start))
     app_bot.run_polling()
 
-if name == "__main__":
+if __name__ == "__main__":
     Thread(target=run_web).start()
     run_bot()
